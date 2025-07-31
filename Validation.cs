@@ -40,18 +40,15 @@ namespace DiceGame
             var isValidBitInput = Enum.GetValues<ZeroToOne>().Select(e => ((char)(byte)e).ToString()).Contains(input.ToUpper());
             return GetValidationMessage(isValidBitInput);
         }
-
         private static string GetValidationMessage(bool isValidInput)
         {
             return isValidInput ? string.Empty : "Enter the above mentioned values.";
         }
-
         public static string GetValidationMessageZeroToFiveInput(string input)
         {
             var isValidNumberZeroToFiveInput = Enum.GetValues<ZeroToFive>().Select(e => ((char)(byte)e).ToString()).Contains(input.ToUpper());
             return GetValidationMessage(isValidNumberZeroToFiveInput);
         }
-
         public static string GetValidationMessageDiceSelectionInput(Dictionary<int, string> diceDict, string input)
         {
             string validationMessage = string.Empty;
@@ -88,7 +85,6 @@ namespace DiceGame
             while (!string.IsNullOrEmpty(validationMessage) || inputCMD[0] == ((char)ExitHelp.Help));
             return int.Parse(inputCMD);
         }
-
         public static void StartProcessValidation(string[] inputCMD, int diceFaces, int minDicesCount)
         {
             string validationMessage = GetValidationMessage(inputCMD, diceFaces, minDicesCount);
@@ -100,7 +96,6 @@ namespace DiceGame
                 Environment.Exit(0);
             }
         }
-
         public static string GetSelectionInputValidationMessage( SelectionType selection, string input , Dictionary<int, string> diceDict)
         {
             string validationMessage = string.Empty;
@@ -124,7 +119,6 @@ namespace DiceGame
             }
             return validationMessage;
         }
-
         public static string GameContinuing()
         {
             string inputCMD = Console.ReadLine()?.ToUpperInvariant() ?? string.Empty;
@@ -149,10 +143,7 @@ namespace DiceGame
             }
             while (!string.IsNullOrEmpty(validationMessage) && commandChar != (char)YesNo.Yes);
 
-
                 return validationMessage;
-            
-            
         }
     }
 }

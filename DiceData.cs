@@ -22,7 +22,6 @@ namespace DiceGame
             }
             return dices;
         }
-
         public static  ( int [] , int [] ) SelectDices (Player starterPlayer ,  string [] inputs , int[, ] dices,  Dictionary<int, string> diceDict)
         {
             int compRandomIndex;
@@ -38,8 +37,6 @@ namespace DiceGame
                 ( compRandomIndex,  compDice) = RandomGeneration.GetRandomDice(inputs, starterPlayer, selectedDiceIndexInput);
                 userDice = diceDict[compRandomIndex].Split(',').Select(d => int.Parse(d)).ToArray();    
                 Console.WriteLine($"I make move and choose the {diceDict[compRandomIndex]} dice.");
-
-
             }
             else
             {

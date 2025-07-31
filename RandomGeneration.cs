@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace DiceGame
 {
-    public class RandomGeneration
+    public static class RandomGeneration
     {
         public static int GenerateRandomNumber(int range)
         {
             return RandomNumberGenerator.GetInt32(range);
         }
-        public static byte[] GenerateSha3_256SecretKey(int keyLengthInBytes)
+        public static byte[] GenerateSecretKey(int keyLengthInBytes)
         {
             byte[] key = new byte[keyLengthInBytes];
             using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
@@ -23,15 +23,13 @@ namespace DiceGame
             }
             return key;
         }
-
-        public static string GenerateSha3_256SecretKeyString(int keyLengthInBytes)
+        public static string GenerateSecretKeyString(int keyLengthInBytes)
         {
-            var secretKey = GenerateSha3_256SecretKey(keyLengthInBytes);
+            var secretKey = GenerateSecretKey(keyLengthInBytes);
             return Hex.ToHexString(secretKey).ToUpper();
         }
         public static (int, int[]) GetRandomDice(string[] diceStrings, Player starterPlayer , int excludeIndex =-1)
         {
-
             int randomInd;
             if (starterPlayer == Player.User)
             {

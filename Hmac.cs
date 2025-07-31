@@ -10,9 +10,9 @@ using Org.BouncyCastle.Utilities.Encoders;
 
 namespace DiceGame
 {
-    public static class SHA3
+    public static class Hmac
     {
-        public static string ComputeHmacSha3_256(string message, string key)
+        public static string ComputeHmac(string message, string key)
         {
             byte[] keyBytes = Encoding.UTF8.GetBytes(key);
             byte[] messageBytes = Encoding.UTF8.GetBytes(message);
@@ -23,9 +23,9 @@ namespace DiceGame
             hmac.DoFinal(result, 0);
             return Convert.ToHexStringLower(result); 
         }
-        public static bool VerifyHmacSha3_256(string message, string key, string expectedHmac)
+        public static bool VerifyHmac(string message, string key, string expectedHmac)
         {
-            string computedHmac = ComputeHmacSha3_256(message, key);
+            string computedHmac = ComputeHmac(message, key);
             return computedHmac.Equals(expectedHmac, StringComparison.OrdinalIgnoreCase);
         }
     }

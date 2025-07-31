@@ -21,8 +21,8 @@ namespace DiceGame
             Console.WriteLine("Let's determine who makes the first move.");
             var cpGenRandomBit = RandomGeneration.GenerateRandomNumber(1);
             Console.WriteLine("I selected a random value in the range 0..1");
-            var cpGenSecretKeyForBit = RandomGeneration.GenerateSha3_256SecretKeyString(32);
-            var cpGenHmac = SHA3.ComputeHmacSha3_256(cpGenRandomBit.ToString(), cpGenSecretKeyForBit);
+            var cpGenSecretKeyForBit = RandomGeneration.GenerateSecretKeyString(32);
+            var cpGenHmac = Hmac.ComputeHmac(cpGenRandomBit.ToString(), cpGenSecretKeyForBit);
             Console.WriteLine($"(HMAC={cpGenHmac}).");
             Console.WriteLine("Try to guess my selection.");
             CmdView.DisplayZeroToNCommand(2);

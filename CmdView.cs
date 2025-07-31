@@ -49,7 +49,6 @@ namespace DiceGame
             Console.ResetColor();
             Console.BackgroundColor = originalBackgroundColor;
             Console.ForegroundColor = originalForegroundColor;
-
             PrintHorizontalBorder();
             for (int row = 0; row < diceStrings.Length; row++)
             {
@@ -74,15 +73,12 @@ namespace DiceGame
             Console.ForegroundColor = originalForegroundColor;
             Console.WriteLine();
         }
-
         public static void DisplayInstructions(int diceFaces, int minDicesCount)
         {
-            var output =   $"Each dice must have exactly {diceFaces}  faces \n" +
-                          "The values of dices must be positive integers  \n" +
-                          "The example of valid arguments: 1,2,3,4,5,6  1,2,3,4,5,6  1,2,3,4,5,6  1,2,3,4,5,6\n";
+            var output =   $"Minimum {minDicesCount} args, exactly {diceFaces} dicefaces and only positive integers \n" +
+                            "The example of valid arguments: 1,2,3,4,5,6  1,2,3,4,5,6  1,2,3,4,5,6  1,2,3,4,5,6 \n";
             Console.WriteLine(output);
         }
-
         public static void DisplayZeroToNCommand(int n)
         {
             for (int i = 0; i < n; i++)
@@ -91,7 +87,6 @@ namespace DiceGame
             }
             CmdView.DisplayExitHelpCommands();
         }
-
         public static void DisplayExitHelpCommands()
         {
             Console.WriteLine("X - Exit");
@@ -108,7 +103,6 @@ namespace DiceGame
                 GenerateAndDisplayDiceProbabilityTableAndInfo(dices, inputs);
             }
         }
-
         public static void DisplayDiceSelections(Dictionary<int, string> selectionDices)
         {
             foreach (var kv in selectionDices)
@@ -117,7 +111,5 @@ namespace DiceGame
             }
             CmdView.DisplayExitHelpCommands();
         }
-
-
     }
 }

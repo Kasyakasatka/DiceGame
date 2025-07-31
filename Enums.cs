@@ -31,7 +31,6 @@ namespace DiceGame
         Computer,
         User 
     }
-
     public enum SelectionType
     {
         ZeroOne,

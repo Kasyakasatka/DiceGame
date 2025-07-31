@@ -16,3 +16,4 @@ C:\Users\ana1a\source\repos\DiceGame\DiceGame\obj\Debug\net9.0\DiceGame.pdb
 C:\Users\ana1a\source\repos\DiceGame\DiceGame\obj\Debug\net9.0\DiceGame.genruntimeconfig.cache
 C:\Users\ana1a\source\repos\DiceGame\DiceGame\obj\Debug\net9.0\ref\DiceGame.dll
 C:\Users\ana1a\source\repos\DiceGame\DiceGame\bin\Debug\net9.0\ConsoleTables.dll
+C:\Users\ana1a\source\repos\DiceGame\DiceGame\obj\Debug\net9.0\DiceGame.sourcelink.json

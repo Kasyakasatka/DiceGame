@@ -17,7 +17,6 @@ namespace DiceGame
         {
             return (double)CountWins(a, b) / (double)(a.Length * b.Length);
         }
-
         public static Dictionary<int, string> GetIndexSelectionDictionary (string[] inputs, Player player, int excludeIndex)
         {
             if (player == Player.Computer)
@@ -32,14 +31,13 @@ namespace DiceGame
             }
             return indexSelection;
         }
-
         public static int MainProcessAndDisplayRolls(int diceFaces , Player player , int[] chosenDice, int[,] dices , string[] inputs , Dictionary<int, string> diceDict)
         {
             Console.WriteLine("It's time for your roll.");
             var compDiceFace = RandomGeneration.GenerateRandomNumber(diceFaces);
             Console.WriteLine($"I selected a random value in the range 0..{diceFaces - 1}");
-            var cpGenSecretKeyForDiceFaces = RandomGeneration.GenerateSha3_256SecretKeyString(32);
-            var cpHmacForRandomDiceface = SHA3.ComputeHmacSha3_256(compDiceFace.ToString(), cpGenSecretKeyForDiceFaces);
+            var cpGenSecretKeyForDiceFaces = RandomGeneration.GenerateSecretKeyString(32);
+            var cpHmacForRandomDiceface = Hmac.ComputeHmac(compDiceFace.ToString(), cpGenSecretKeyForDiceFaces);
             Console.WriteLine($"(HMAC={cpHmacForRandomDiceface}).");
             Console.WriteLine($"Choose value in the range 0..{diceFaces - 1}");
             CmdView.DisplayZeroToNCommand(diceFaces);
@@ -60,7 +58,6 @@ namespace DiceGame
             }
             return fareNumber; 
         }
-
         public static  void MakeWinnerDecisionAndDisplay( int userFareNumber , int compFareNumber)
         {
             if (userFareNumber > compFareNumber)
